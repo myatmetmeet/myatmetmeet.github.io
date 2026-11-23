@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ADMIN | ENFPATH</title><link rel="stylesheet" href="style.css"></head><body>
+<nav class="site-nav"><button class="menu-toggle" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button><div class="menu-panel"><div class="menu-label">NAVIGATION</div><a href="index.html">MAIN</a><a href="world.html">WORLD</a><a href="character.html">CHARACTER</a><a href="canon.html">CANON</a><a href="extra.html">EXTRA</a></div></nav>
+<main class="admin-wrap"><div class="section-label">PRIVATE ARCHIVE / ADMIN</div><h1>ADMIN PANEL</h1><p>관리자 전용 콘텐츠 관리 공간</p>
+<section id="login-panel" class="admin-card"><h2>Administrator Login</h2><form id="login-form" class="admin-form"><label for="secret">ADMIN ACCESS CODE</label><input id="secret" type="password" autocomplete="current-password" required placeholder="관리자 비밀 코드"><button class="btn" type="submit">LOGIN</button><p id="login-message" role="status"></p></form></section>
+<section id="dashboard" class="hidden">
+<div class="admin-card"><div class="admin-actions" style="justify-content:space-between"><h2>CONTENT EDITOR</h2><button id="logout" class="btn secondary">LOG OUT</button></div>
+<form id="content-form" class="admin-form">
+<input type="hidden" id="content-id">
+<label for="category">CATEGORY</label><select id="category"><option value="world">WORLD</option><option value="character">CHARACTER</option><option value="canon">CANON</option><option value="extra">EXTRA</option></select>
+<label for="type">CONTENT TYPE</label><input id="type" placeholder="예: CHARACTER PROFILE / HISTORY">
+<label for="title">TITLE</label><input id="title" required placeholder="제목">
+<label for="body">CONTENT</label><textarea id="body" placeholder="내용을 입력하세요."></textarea>
+<label for="image">IMAGE UPLOAD</label><input id="image" type="file" accept="image/*"><p id="image-status"></p><input type="hidden" id="image-url">
+<div class="admin-actions"><button class="btn secondary" type="button" id="save-draft">SAVE DRAFT</button><button class="btn" type="button" id="publish">PUBLISH</button><button class="btn secondary" type="button" id="reset">NEW ENTRY</button></div><p id="editor-message" role="status"></p>
+</form></div>
+<div class="admin-card"><h2>YOUR RECORDS</h2><div id="record-list" class="admin-list"></div></div>
+</section></main><script src="script.js"></script><script src="admin.js"></script></body></html>
