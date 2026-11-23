@@ -1,0 +1,2 @@
+const {safeEqual,setSession}=require("../_lib");
+module.exports=async function(req,res){if(req.method!=="POST")return res.status(405).end();try{const code=req.body?.code;const expected=process.env.ADMIN_CODE;if(!expected||!process.env.SESSION_SECRET)return res.status(500).json({error:"관리자 환경 변수가 설정되지 않았습니다."});if(typeof code!=="string"||!safeEqual(code,expected))return res.status(401).json({error:"비밀 코드가 올바르지 않습니다."});setSession(res);return res.status(200).json({ok:true})}catch(e){return res.status(500).json({error:e.message})}};
